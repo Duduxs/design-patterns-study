@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 public class Main {
 
     public static void main(String[] args) {
+
         List<Vehicle> vehicles = new ArrayList<>();
         //Caso eu mude o nome da classe Car eu teria que trocar aqui e em todos os pontos que usasse o 'new'.
         Car car1 = new Car("Toyota");
