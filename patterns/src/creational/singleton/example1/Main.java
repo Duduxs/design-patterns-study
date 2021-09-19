@@ -1,7 +1,7 @@
-package creational.singleton;
+package creational.singleton.example1;
 
-import creational.singleton.db.MyDatabaseClassic;
-import creational.singleton.db.User;
+import creational.singleton.example1.db.MyDatabaseClassic;
+import creational.singleton.example1.db.User;
 
 public class Main {
 

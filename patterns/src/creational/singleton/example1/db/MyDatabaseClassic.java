@@ -1,4 +1,4 @@
-package creational.singleton.db;
+package creational.singleton.example1.db;
 
 import java.util.ArrayList;
 import java.util.Collection;

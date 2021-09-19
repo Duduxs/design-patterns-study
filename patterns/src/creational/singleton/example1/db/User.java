@@ -1,4 +1,4 @@
-package creational.singleton.db;
+package creational.singleton.example1.db;
 
 public class User {
     private String name;

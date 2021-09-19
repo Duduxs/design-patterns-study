@@ -1,4 +1,4 @@
-package creational.factory;
+package creational.factory.example1;
 
 import java.math.BigDecimal;
 import java.util.Calendar;

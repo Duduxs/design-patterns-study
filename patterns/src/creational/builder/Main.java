@@ -1,8 +1,5 @@
 package creational.builder;
 
-import creational.singleton.db.MyDatabaseClassic;
-import creational.singleton.db.User;
-
 public class Main {
 
     public static void main(String[] args) {
