@@ -9,7 +9,6 @@ public class Main {
         var myDatabaseClassic = MyDatabaseClassic.getInstance();
         var myDatabaseClassic2 = MyDatabaseClassic.getInstance();
 
-
         myDatabaseClassic.add(new User("Eduardo"));
         myDatabaseClassic.add(new User("João"));
         myDatabaseClassic.add(new User("Maria"));
