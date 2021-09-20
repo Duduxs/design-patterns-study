@@ -1,4 +1,5 @@
 package creational.prototype;
+
 public class Product {
 
     private String id;

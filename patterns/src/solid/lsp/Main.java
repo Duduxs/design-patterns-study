@@ -1,4 +1,4 @@
-package solid.lsp.wrong;
+package solid.lsp;
 
 /**
  * Esse principio diz uma classe base deve poder ser substituída pela sua classe derivada.
