@@ -1,2 +1,1 @@
-# design-patterns-study
-Meus Estudos em padrões de design utilizando Java.
+My studies in design patterns using Java. 
