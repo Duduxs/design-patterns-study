@@ -7,19 +7,21 @@ public class EmployeeDAO {
     /**
      *     Agora aqui, não importa qual banco esteja sendo usado, pois agora utilizo uma abstração.
      */
-    public void save(DBConnector msCon) {
+    public void save(DBConnector3 msCon) {
         System.out.println("Saved to database");
     }
 }
 
-interface DBConnector {  public void connect(); }
+interface DBConnector3 {  public void connect(); }
 
-class MySQLConnector implements DBConnector {
+class OracleConnector implements DBConnector3 {
     public void connect() {
         System.out.println("Connected to MySQL database!");
     }
+
+
 }
-class OracleConnector implements DBConnector {
+class MySQLConnector implements DBConnector3 {
     public void connect() {
         System.out.println("Connected to MySQL database!");
     }
