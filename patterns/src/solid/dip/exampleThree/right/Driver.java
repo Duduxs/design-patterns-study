@@ -32,6 +32,4 @@ class RacingCar implements Car {
         --fuel;
         System.out.println("Car is accelrating!");
     }
-
-
 }

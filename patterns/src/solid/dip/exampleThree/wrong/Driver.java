@@ -30,6 +30,4 @@ class RacingCar {
         --fuel;
         System.out.println("Car is accelrating!");
     }
-
-
 }
