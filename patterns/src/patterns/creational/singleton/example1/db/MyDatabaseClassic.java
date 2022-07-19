@@ -2,6 +2,7 @@ package patterns.creational.singleton.example1.db;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Objects;
 
 public class MyDatabaseClassic {
 
@@ -12,10 +13,10 @@ public class MyDatabaseClassic {
     private MyDatabaseClassic() {}
 
     public static MyDatabaseClassic getInstance() {
-        if(MyDatabaseClassic.instance == null) {
-            return MyDatabaseClassic.instance = new MyDatabaseClassic();
-        }
-        return MyDatabaseClassic.instance;
+        return Objects.requireNonNullElseGet(
+                MyDatabaseClassic.instance,
+                () -> MyDatabaseClassic.instance = new MyDatabaseClassic()
+        );
     }
 
     public void add(final User user) {
