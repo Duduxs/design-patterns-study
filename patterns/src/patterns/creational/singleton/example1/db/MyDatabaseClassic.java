@@ -13,10 +13,8 @@ public class MyDatabaseClassic {
     private MyDatabaseClassic() {}
 
     public static MyDatabaseClassic getInstance() {
-        return Objects.requireNonNullElseGet(
-                MyDatabaseClassic.instance,
-                () -> MyDatabaseClassic.instance = new MyDatabaseClassic()
-        );
+        instance = Objects.requireNonNullElseGet(MyDatabaseClassic.instance, MyDatabaseClassic::new);
+        return instance;
     }
 
     public void add(final User user) {

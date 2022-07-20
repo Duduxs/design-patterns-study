@@ -15,6 +15,7 @@ public class Main {
 
         myDatabaseClassic.show();
 
+        // True! Singleton works!
         System.out.println(myDatabaseClassic == myDatabaseClassic2);
 
     }
