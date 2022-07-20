@@ -1,4 +1,4 @@
-package patterns.creational.singleton.example1.db;
+package patterns.creational.singleton.examples.first.db;
 
 public class User {
     private String name;

@@ -1,67 +1,49 @@
-package patterns.creational.singleton.example2;
+package patterns.creational.singleton.examples.second;
 
-import static patterns.creational.singleton.example2.ProductType.DIGITAL;
-import static patterns.creational.singleton.example2.ProductType.FISIC;
+import java.util.ArrayList;
+import java.util.List;
 
+//Singleton with Thread Safety
 public class Main {
     public static void main(String[] args) {
-        final var productFactory = ProductFactory.getInstance();
 
-        productFactory.createProduct(FISIC);
-        productFactory.createProduct(DIGITAL);
-
-        //TRUE! Devem ser as mesmas instâncias, pois também utilizo aqui o Singleton
-        System.out.println(ProductFactory.getInstance() == productFactory);
-
-        //Implementação thread Safety
         final var productFactoryThreadSafety = ProductFactoryThreadSafety.SINGLETON;
+
+        productFactoryThreadSafety.createProduct(ProductType.DIGITAL);
+
+        //TRUE! Must be the same instances
         System.out.println(ProductFactoryThreadSafety.SINGLETON == productFactoryThreadSafety);
+
+        //Must've one
+        System.out.println(ProductFactoryThreadSafety.SINGLETON.products.size());
+        System.out.println(ProductFactoryThreadSafety.SINGLETON.products.get(0).getClass().getSimpleName());
+
+
     }
 }
 
-interface Product {  }
-
-class DigitalProduct implements Product { }
+interface Product { }
+record DigitalProduct() implements Product { }
 class FisicProduct implements Product { }
 
 enum ProductType { DIGITAL, FISIC }
 
-//Simple factory method + Singleton pattern
-class ProductFactory {
-
-    private static ProductFactory instance;
-
-    private ProductFactory() {}
-
-    public static ProductFactory getInstance() {
-        if(ProductFactory.instance == null)  { instance = new ProductFactory(); }
-        return ProductFactory.instance;
-    }
-
-    public Product createProduct(final ProductType type) {
-         switch (type) {
-           case DIGITAL:
-               return new DigitalProduct();
-           case FISIC:
-                return new FisicProduct();
-             default:
-                 throw new IllegalArgumentException("Opperation not mapped!");
-       }
-    }
-}
-
-//É mais adequado utilizar o singleton dessa forma, pois ele fica Thread Safety
+// It's more useful to create singleton in this mode, because it became Thread Safety
 enum ProductFactoryThreadSafety {
     SINGLETON;
 
+    List<Product> products = new ArrayList<>();
+
     public Product createProduct(final ProductType type) {
-        switch (type) {
-            case DIGITAL:
-                return new DigitalProduct();
-            case FISIC:
-                return new FisicProduct();
-            default:
-                throw new IllegalArgumentException("Opperation not mapped!");
-        }
+
+        final var produt = switch (type) {
+            case DIGITAL -> new DigitalProduct();
+            case FISIC -> new FisicProduct();
+        };
+
+        products.add(produt);
+
+        return produt;
+
     }
 }

@@ -1,7 +1,7 @@
-package patterns.creational.singleton.example1;
+package patterns.creational.singleton.examples.first;
 
-import patterns.creational.singleton.example1.db.MyDatabaseClassic;
-import patterns.creational.singleton.example1.db.User;
+import patterns.creational.singleton.examples.first.db.MyDatabaseClassic;
+import patterns.creational.singleton.examples.first.db.User;
 
 public class Main {
 
@@ -13,6 +13,9 @@ public class Main {
         myDatabaseClassic.add(new User("Eduardo"));
         myDatabaseClassic.add(new User("João"));
         myDatabaseClassic.add(new User("Maria"));
+
+        //Using same instance
+        myDatabaseClassic2.add(new User("Same instance"));
 
         myDatabaseClassic.show();
 

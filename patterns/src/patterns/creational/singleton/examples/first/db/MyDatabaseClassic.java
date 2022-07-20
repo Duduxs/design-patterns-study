@@ -1,4 +1,4 @@
-package patterns.creational.singleton.example1.db;
+package patterns.creational.singleton.examples.first.db;
 
 import java.util.ArrayList;
 import java.util.Collection;
