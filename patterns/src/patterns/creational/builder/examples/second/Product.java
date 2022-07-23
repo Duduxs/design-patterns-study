@@ -1,4 +1,4 @@
-package patterns.creational.builder;
+package patterns.creational.builder.examples.second;
 
 // Isso aqui não é uma classe complexa, criei o Builder dessa forma para facilitar a compreensão do padrão
 public class Product {
