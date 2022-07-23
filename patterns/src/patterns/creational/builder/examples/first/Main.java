@@ -2,6 +2,7 @@ package patterns.creational.builder.examples.first;
 
 /**
  * Note que temos uma estrutura simples por questões didáticas.
+ * Esse padrão não é para criar objetos simples.
  */
 class Person {
     String name;
@@ -44,11 +45,21 @@ public class Main {
 
         var builder = new PersonBuilder();
 
-        var person = builder.setName("Eduardo J")
+        var person = builder
+                .setName("Eduardo J")
                 .setAge(21)
                 .getResult();
 
+        builder.newPerson();
+
+        var anotherPerson = builder
+                .setName("Luiz")
+                .setAge(30)
+                .getResult();
+
         System.out.println(person);
+        System.out.println(anotherPerson);
+
 
     }
 }
