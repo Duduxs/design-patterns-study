@@ -1,6 +1,6 @@
-package patterns.creational.prototype.examples.first;
+package patterns.creational.prototype.examples.second;
 
-public class Address {
+public class Address implements Cloneable {
 
     private String name;
 
@@ -25,5 +25,14 @@ public class Address {
                 "name='" + name + '\'' +
                 ", number=" + number +
                 '}';
+    }
+
+    @Override
+    public Address clone() {
+        try {
+            return (Address) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

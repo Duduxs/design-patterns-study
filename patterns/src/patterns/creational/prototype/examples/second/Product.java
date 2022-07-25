@@ -1,4 +1,4 @@
-package patterns.creational.prototype.examples.first;
+package patterns.creational.prototype.examples.second;
 
 public class Product implements Cloneable {
 
@@ -12,7 +12,9 @@ public class Product implements Cloneable {
         this.address = address;
     }
 
-    public void setId(String id) { this.id = id; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public void setPrice(Double price) {
         this.price = price;
@@ -21,12 +23,19 @@ public class Product implements Cloneable {
     public Address getAddress() {
         return address;
     }
-    public void setAddress(Address address) { this.address = address; }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     @Override
     public Product clone() {
         try {
-            return (Product) super.clone();
+            var clone = (Product) super.clone();
+            clone.setAddress(address.clone());
+
+            return clone;
+
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }

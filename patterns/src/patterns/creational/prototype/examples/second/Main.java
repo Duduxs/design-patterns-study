@@ -1,6 +1,6 @@
-package patterns.creational.prototype.examples.first;
+package patterns.creational.prototype.examples.second;
 
-// EXEMPLO COM SHALLOW COPY
+// EXEMPLO COM DEEP COPY
 
 /**
  * DEEP VS SHALLOW COPY
@@ -17,12 +17,13 @@ public class Main {
         product2.setId("2");
         product2.setPrice(5.0);
 
-        /*
-         * Troquei o endereço somente do product1, entretanto como não foi criado um novo address
-         * no método clone() do Product, ou seja, as duas novas instâncias na heap de Product
-         * Apontam pra mesma instância de address na memória, então, se eu trocar o endereço de
-         * product1 o product2 também terá esse mesmo endereço, e o inverso também será verdade.
-         * Isso é chamado de Shallow Copy.
+        /**
+         * Veja que mesmo eu trocando o endereço do produto 1 o produto 2 que é uma cópia desse protótipo
+         * não teve também seu endereço trocado para o nome "Rua trocada". Se você averiguar o copy agora do
+         * Product verá que eu também uso o copy do Address para criar uma nova cópia de um endereço qualquer
+         * na HEAP e fazer o Product copiado apontar somente para ela. Se deve porque o Address agora também tem
+         * o seu método clone.
+         * Isso é chamado de Deep Copy.
          */
         product1.getAddress().setName("Rua trocada");
 
