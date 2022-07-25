@@ -1,4 +1,4 @@
-package patterns.creational.prototype;
+package patterns.creational.prototype.examples.first;
 
 public class Address {
 

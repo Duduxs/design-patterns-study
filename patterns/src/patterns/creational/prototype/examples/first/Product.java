@@ -1,6 +1,6 @@
-package patterns.creational.prototype;
+package patterns.creational.prototype.examples.first;
 
-public class Product {
+public class Product implements Cloneable {
 
     private String id;
     private Double price;
@@ -22,7 +22,12 @@ public class Product {
 
     @Override
     public Product clone() {
-        return new Product(this.id, this.price, this.address);
+        try {
+            return (Product) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
