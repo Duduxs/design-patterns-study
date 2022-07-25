@@ -4,8 +4,13 @@ package patterns.creational.prototype.examples.first;
 
 /**
  * DEEP VS SHALLOW COPY
- * Deep: Guarda o valor do objeto copiado e uma vez copiado não muda, pois ele copia e cria um novo na heap sem apontar.
- * Shallow: Reflete as mudanças do novo objeto copiado no objeto original, pois ele copia e aponta na heap.
+ *
+ * Deep: Não reflete as mudanças de valores nas dependências do objeto copiado no objeto original, pois ele copia também
+ * as dependências do objeto original, sempre criando novos na heap e fazendo as cópias apontarem para eles.
+ * É uma cópia mais pesada, porém mais eficaz.
+ *
+ * Shallow: Reflete as mudanças de valores nas dependências do objeto copiado no objeto original, pois ele copia e
+ * aponta as dependências do objeto copiado para as mesmas instâncias das dependências do objeto original na heap.
  */
 public class Main {
 
@@ -28,7 +33,8 @@ public class Main {
 
         System.out.println(product1);
         System.out.println(product2);
-        System.out.println(product1 == product2);
+        // TRUE! Os produtos apontam para as mesmas instâncias de address na heap!
+        System.out.println(product1.getAddress() == product2.getAddress());
 
     }
 }
