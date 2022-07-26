@@ -1,4 +1,4 @@
-package patterns.creational.factory.example1;
+package patterns.creational.factory.examples.first;
 
 import java.math.BigDecimal;
 import java.util.Calendar;

@@ -1,20 +1,22 @@
-package patterns.creational.factory.example2;
+package patterns.creational.factory.examples.second;
 
-public class Bike implements Vehicle {
+public class Car implements Vehicle {
 
     private String name;
 
-    public Bike() {}
+    public Car() {}
 
-    public Bike(String name) { this.name = name; }
+    public Car(String name) { this.name = name; }
 
     @Override
     public void pickup(String customerName) { System.out.println(this.name + " está buscando " + customerName); }
 
     @Override
     public String toString() {
-        return "Bike{" +
+        return "Car{" +
                 "name='" + name + '\'' +
                 '}';
     }
+
+
 }

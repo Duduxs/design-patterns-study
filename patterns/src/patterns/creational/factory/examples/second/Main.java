@@ -1,4 +1,4 @@
-package patterns.creational.factory.example2;
+package patterns.creational.factory.examples.second;
 
 import java.util.ArrayList;
 import java.util.List;
