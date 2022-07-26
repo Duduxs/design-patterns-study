@@ -19,7 +19,7 @@ public class Main {
         final var fisicFactory = new FisicFactory();
 
         DigitalProduct dp = digitalFactory.createProduct();
-        FisicProduct fp = fisicFactory.createProduct();
+        PhysicalProduct fp = fisicFactory.createProduct();
     }
 
 }
@@ -27,7 +27,7 @@ interface Product {}
 
 class DigitalProduct implements Product {}
 
-class FisicProduct implements Product {}
+class PhysicalProduct implements Product {}
 
 interface Factory {
     Product createProduct();
@@ -44,7 +44,7 @@ class DigitalFactory implements Factory {
 class FisicFactory implements Factory {
     //Alguns atributos aqui e também possibilidade de por regras no método createProduct
     @Override
-    public FisicProduct createProduct() {
-        return new FisicProduct();
+    public PhysicalProduct createProduct() {
+        return new PhysicalProduct();
     }
 }
