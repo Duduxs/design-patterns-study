@@ -1,7 +1,7 @@
-package patterns.creational.abstractFactory;
+package patterns.creational.abstractFactory.second.factory;
 
-import patterns.creational.abstractFactory.factory.EnterpriseCustomerVehicleFactory;
-import patterns.creational.abstractFactory.factory.IndividualCustomerVehicleFactory;
+import patterns.creational.abstractFactory.second.factory.EnterpriseCustomerVehicleFactory;
+import patterns.creational.abstractFactory.second.factory.IndividualCustomerVehicleFactory;
 
 public class Main {
 

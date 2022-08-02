@@ -1,4 +1,4 @@
-package patterns.creational.abstractFactory.customer;
+package patterns.creational.abstractFactory.second.factory.customer;
 
 public class EnterpriseCustomer implements Customer {
 
