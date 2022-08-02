@@ -1,4 +1,4 @@
-package patterns.creational.abstractFactory.examples.first;
+package patterns.creational.abstractFactory.examples.first.factory;
 
 import patterns.creational.abstractFactory.examples.first.customer.Customer;
 import patterns.creational.abstractFactory.examples.first.customer.IndividualCustomer;
