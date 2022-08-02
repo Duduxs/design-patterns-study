@@ -1,6 +1,6 @@
-package patterns.creational.abstractFactory.second.factory.vehicle;
+package patterns.creational.abstractFactory.examples.first.vehicle;
 
-import patterns.creational.abstractFactory.second.factory.customer.Customer;
+import patterns.creational.abstractFactory.examples.first.customer.Customer;
 
 public class EnterpriseCar implements Vehicle {
 

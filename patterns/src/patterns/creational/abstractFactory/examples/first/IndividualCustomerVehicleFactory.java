@@ -1,9 +1,9 @@
-package patterns.creational.abstractFactory.second.factory;
+package patterns.creational.abstractFactory.examples.first;
 
-import patterns.creational.abstractFactory.second.factory.customer.Customer;
-import patterns.creational.abstractFactory.second.factory.customer.IndividualCustomer;
-import patterns.creational.abstractFactory.second.factory.vehicle.IndividualCar;
-import patterns.creational.abstractFactory.second.factory.vehicle.Vehicle;
+import patterns.creational.abstractFactory.examples.first.customer.Customer;
+import patterns.creational.abstractFactory.examples.first.customer.IndividualCustomer;
+import patterns.creational.abstractFactory.examples.first.vehicle.IndividualCar;
+import patterns.creational.abstractFactory.examples.first.vehicle.Vehicle;
 
 public class IndividualCustomerVehicleFactory implements CustomerVehicleFactory {
 

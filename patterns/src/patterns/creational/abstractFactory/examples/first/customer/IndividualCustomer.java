@@ -1,4 +1,4 @@
-package patterns.creational.abstractFactory.second.factory.customer;
+package patterns.creational.abstractFactory.examples.first.customer;
 
 public class IndividualCustomer implements Customer {
 
