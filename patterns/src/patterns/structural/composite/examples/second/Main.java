@@ -1,106 +1,12 @@
 package patterns.structural.composite.examples.second;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
+import patterns.structural.composite.examples.second.composites.StringComposite;
+import patterns.structural.composite.examples.second.leafs.StringHasSpecialCharactersLeaf;
+import patterns.structural.composite.examples.second.leafs.StringInLowercaseLeaf;
+import patterns.structural.composite.examples.second.leafs.StringMaxLengthLeaf;
+import patterns.structural.composite.examples.second.leafs.StringMinLengthLeaf;
 
-class NotValidException extends RuntimeException {
-    NotValidException(String message) {
-        super(message);
-    }
-}
 
-interface StringValidatorComponent {
-
-    boolean isValid();
-
-    String getErrorMessage();
-
-    default void throwIfInvalid() {
-        if (!isValid()) throw new NotValidException(getErrorMessage());
-    }
-
-}
-
-record StringMaxLengthLeaf(
-        String value,
-        String errorMessage
-) implements StringValidatorComponent {
-
-    public StringMaxLengthLeaf(String value) {
-        this(value, "String can't have more than fifteen characters");
-    }
-
-    @Override
-    public String getErrorMessage() {
-        return errorMessage;
-    }
-
-    @Override
-    public boolean isValid() {
-        return value.length() <= 15;
-    }
-
-}
-
-record StringMinLengthLeaf(
-        String value,
-        String errorMessage
-) implements StringValidatorComponent {
-
-    public StringMinLengthLeaf(String value) {
-        this(value, "String can't have less than one character");
-    }
-
-    @Override
-    public String getErrorMessage() {
-        return errorMessage;
-    }
-
-    @Override
-    public boolean isValid() {
-        return value.length() >= 1;
-    }
-
-}
-
-class StringComposite implements StringValidatorComponent {
-
-    private final Collection<StringValidatorComponent> validators = new ArrayList<>();
-
-    public StringComposite(StringValidatorComponent... validators) {
-        this.validators.addAll(List.of(validators));
-    }
-
-    @Override
-    public boolean isValid() {
-        for (var validator : validators) {
-            if (!validator.isValid()) {
-                return false;
-            }
-        }
-
-        return true;
-
-    }
-
-    @Override
-    public String getErrorMessage() {
-        return validators.stream()
-                .map(StringValidatorComponent::getErrorMessage)
-                .collect(Collectors.joining(", "));
-    }
-
-    @Override
-    public void throwIfInvalid() {
-        for (var validator : validators) {
-            if (!validator.isValid()) {
-                validator.throwIfInvalid();
-            }
-        }
-    }
-}
 
 
 public class Main {
@@ -124,15 +30,44 @@ public class Main {
         System.out.println(lengthCompositeValidator.isValid());
         System.out.println("Default messages: " + lengthCompositeValidator.getErrorMessage());
 
-        var anotherInput = "";
+        input = "";
 
-        maxLengthValidator = new StringMaxLengthLeaf(anotherInput);
-        minLengthValidator = new StringMinLengthLeaf(anotherInput);
+        maxLengthValidator = new StringMaxLengthLeaf(input);
+        minLengthValidator = new StringMinLengthLeaf(input);
 
         lengthCompositeValidator = new StringComposite(minLengthValidator, maxLengthValidator);
 
         System.out.println("\nNow, isn't valid the input!");
         System.out.println(lengthCompositeValidator.isValid());
-        lengthCompositeValidator.throwIfInvalid();
+
+        try{
+            lengthCompositeValidator.throwIfInvalid();
+        } catch(RuntimeException ex) {
+            System.out.println("\nThrowed an exception: " + ex.getLocalizedMessage());
+        }
+
+        System.out.println();
+        System.out.println("--------------------");
+
+        input = "other value";
+
+        var lowerCaseValidator = new StringInLowercaseLeaf(input);
+        var specialCharactersValidator = new StringHasSpecialCharactersLeaf(input);
+
+        maxLengthValidator = new StringMaxLengthLeaf(input);
+        minLengthValidator = new StringMinLengthLeaf(input);
+
+        lengthCompositeValidator = new StringComposite(minLengthValidator, maxLengthValidator);
+
+        var contentCompositeValidator = new StringComposite(lowerCaseValidator, specialCharactersValidator);
+
+        var completeCompositeValidator = new StringComposite(contentCompositeValidator, lengthCompositeValidator);
+
+        /**
+         * It's valid!
+         */
+        System.out.println("Your string is valid? [" + completeCompositeValidator.isValid() + "]");
+        completeCompositeValidator.throwIfInvalid();
+
     }
 }
