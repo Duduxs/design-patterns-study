@@ -1,6 +1,7 @@
 package patterns.structural.bridge.examples.first;
 
-import patterns.structural.bridge.examples.first.abstractions.RemoteControlWithVolume;
+import patterns.structural.bridge.examples.first.abstractions.AdvancedRemote;
+import patterns.structural.bridge.examples.first.abstractions.SimpleRemote;
 import patterns.structural.bridge.examples.first.implementations.Radio;
 import patterns.structural.bridge.examples.first.implementations.Tv;
 
@@ -11,7 +12,7 @@ public class Main {
         var tv = new Tv();
         var radio = new Radio();
 
-        var control = new RemoteControlWithVolume(tv);
+        var control = new SimpleRemote(tv);
 
         //true
         control.togglePower();
@@ -20,11 +21,11 @@ public class Main {
         control.volumeUp(); //30
         control.volumeDown(); // 20
 
-        var otherControl = new RemoteControlWithVolume(radio);
+        var otherControl = new AdvancedRemote(radio);
 
         otherControl.togglePower();
 
-        otherControl.volumeUp();
+        otherControl.mute();
 
 
 

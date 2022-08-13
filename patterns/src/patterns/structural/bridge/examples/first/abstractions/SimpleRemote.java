@@ -2,9 +2,9 @@ package patterns.structural.bridge.examples.first.abstractions;
 
 import patterns.structural.bridge.examples.first.implementations.DeviceImplementation;
 
-public class RemoteControlWithVolume extends RemoteControl {
+public class SimpleRemote extends RemoteControl {
 
-    public RemoteControlWithVolume(DeviceImplementation device) {
+    public SimpleRemote(DeviceImplementation device) {
         super(device);
     }
 
