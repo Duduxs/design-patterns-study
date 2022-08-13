@@ -8,6 +8,8 @@ public class AdvancedRemote extends RemoteControl {
         super(device);
     }
 
+    //I could put volumeUp and down methods here, but I hope that you understood that this class is
+    // an advanced remote.
     public void mute() {
         System.out.println("Remote: mute");
         device.setVolume(0);
