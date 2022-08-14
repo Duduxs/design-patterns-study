@@ -1,6 +1,6 @@
 package patterns.structural.decorator.examples.second;
 
-public class KnifeTrollDecorator extends ClubbedTrollBaseDecorator {
+public class KnifeTrollDecorator extends BaseDecorator {
 
     public KnifeTrollDecorator(Troll wrapper) {
         super(wrapper);

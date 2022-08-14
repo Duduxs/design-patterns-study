@@ -4,17 +4,31 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        ClubbedTrollBaseDecorator troll = new KnifeTrollDecorator(
-                new SimpleTroll()
-        );
+        // simple troll
+        System.out.println("A simple looking troll approaches.");
 
-        System.out.println("Troll attk power: " + troll.getAttackPower());
+        var simpleTroll = new SimpleTroll();
 
-        troll.attack();
+        System.out.println("Simple troll atk power: " + simpleTroll.getAttackPower());
 
+        simpleTroll.attack();
         Thread.sleep(3000);
+        simpleTroll.fleeBattle();
 
-        troll.fleeBattle();
+        Thread.sleep(2000);
+
+        System.out.println();
+        System.out.println("A troll with a knife surprises you");
+
+        //Change the behaviour of the simple troll by adding a decorator.
+        BaseDecorator knifeTroll = new KnifeTrollDecorator(simpleTroll);
+
+        System.out.println("Troll atk power: " + knifeTroll.getAttackPower());
+
+        knifeTroll.attack();
+        Thread.sleep(3000);
+        knifeTroll.fleeBattle();
+
     }
 
 }
