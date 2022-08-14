@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StringComposite implements StringValidatorComponent {
-
     private final Collection<StringValidatorComponent> validators = new ArrayList<>();
+
 
     public StringComposite(StringValidatorComponent... validators) {
         this.validators.addAll(List.of(validators));
