@@ -1,6 +1,5 @@
 package patterns.structural.proxy.examples.third.thirdparty;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public interface ThirdPartyYoutubeLib {
