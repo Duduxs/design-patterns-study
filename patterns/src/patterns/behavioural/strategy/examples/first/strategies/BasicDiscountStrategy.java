@@ -5,7 +5,7 @@ import patterns.behavioural.strategy.examples.first.ShoppingCart;
 public class BasicDiscountStrategy extends DiscountStrategy {
 
     @Override
-    Integer getDiscount(ShoppingCart shoppingCart) {
+    public Integer getDiscount(ShoppingCart shoppingCart) {
 
         var total = shoppingCart.getSubTotal();
 
