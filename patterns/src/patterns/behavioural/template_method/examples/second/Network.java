@@ -15,7 +15,7 @@ public abstract class Network {
         this.password = password;
     }
 
-    public boolean post(String message) {
+    public final boolean post(String message) {
 
         if(login(username, password)) {
             boolean result = sendData(message.getBytes());

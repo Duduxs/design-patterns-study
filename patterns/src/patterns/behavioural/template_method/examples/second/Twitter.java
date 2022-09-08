@@ -2,7 +2,7 @@ package patterns.behavioural.template_method.examples.second;
 
 public class Twitter extends Network {
 
-    public Twitter() {};
+    public Twitter() {}
 
     public Twitter(String username, String password) {
         this.username = username;
