@@ -4,12 +4,15 @@ Design patterns with Java
 </h1>
 
 <h4 align="center">
-  <p>I created this repository along this free course on Youtube</p>
-
-  <p>https://www.youtube.com/watch?v=MqddY6Ochkc&list=PLbIBj8vQhvm0VY5YrMrafWaQY2EnJ3j8H</p>
-
-  <p>4 greater understanding, pls see the playlist.</p>
+  <p>In this repo you can see all design patterns implemented in Java.</p>
 </h4>
+
+<h5>
+  <p>Credits</p>
+  <p>https://www.youtube.com/watch?v=MqddY6Ochkc&list=PLbIBj8vQhvm0VY5YrMrafWaQY2EnJ3j8H</p>
+  <p>https://refactoring.guru/pt-br/design-patterns/java</p>
+  <p>https://github.dev/iluwatar/java-design-patterns</p>
+</h5>
 
 <hr>
 
